@@ -23,7 +23,7 @@ function scoreBuff(buff) {
     return 2;
   } else if (buff == 'Cursed finger') {
     return -10;
-  } else if (['Click frenzy', 'Cookie storm'].indexOf(buff) >= 0) {
+  } else if (['Click frenzy', 'Cookie storm', 'Dragonflight'].indexOf(buff) >= 0) {
     return 0;
   } else if (buff == 'Clot') {
     return -1;
