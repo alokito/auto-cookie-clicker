@@ -3,6 +3,7 @@ function scoreBuff(buff) {
   if ([
     "Dragon Harvest",
     "Extra cycles",
+    "Juicy profits",
     "Oiled-up",
     "Congregation",
     "Refactoring",
