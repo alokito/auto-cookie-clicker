@@ -84,6 +84,34 @@ function checkHarvest() {
     }
      // console.log(`nothing to plant? ${context}`);
   } else {
+    let numMature = 0;
+    let numGrowing = 0;
+    for (i =1; i<7; i++) {
+      for (j = 1; j < 7; j++) {
+        const plantIdAge = mg.getTile(i,j);
+        const plantDetails = mg.plantsById[plantIdAge[0]-1];
+        if (plantDetails) {
+          if (plantIdAge[1] >= plantDetails.mature) {
+            numMature = numMature + 1;
+          } else {
+            numGrowing = numGrowing + 1;
+          }
+        }
+      }
+    }
+    if (Date.now() > mg.nextSoil) {
+      if (numGrowing > 0) {
+        if (mg.soil != 1) {
+          console.log(`${numGrowing} growing plants, setting soil to fertilizer at ${new Date()}`)
+          $("#gardenSoil-1").click();
+        }
+      } else {
+        if (mg.soil != 2) {
+          console.log(`${numGrowing} growing plants, setting soil to clay at ${new Date()}`)
+          $("#gardenSoil-2").click();
+        }
+      }
+    }
      // console.log(`not enough buffs, ${context}`);
   }
   window.keepHarvesting && setTimeout(checkHarvest, 1000);
