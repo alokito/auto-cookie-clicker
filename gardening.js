@@ -55,8 +55,8 @@ function checkHarvest() {
   const context = `buffs ${JSON.stringify(buffs)} (${mult})`
   let i, j;
   if (mult > 100) {
-    for (i =1; i<7; i++) {
-      for (j = 1; j < 7; j++) {
+    for (i =0; i<7; i++) {
+      for (j = 0; j < 7; j++) {
         p = mg.getTile(i,j);
         me = mg.plantsById[p[0]-1];
         if (me && (["Bakeberry", "Queenbeet", "Chocoroot", "White chocoroot"].indexOf(me.name) >= 0) && p[1] >= me.mature) {
@@ -69,8 +69,8 @@ function checkHarvest() {
     }
     // console.log(`nothing to harvest, ${context}`);
   } else if (mult <= 1) {
-    for (i =1; i<7; i++) {
-      for (j = 1; j < 7; j++) {
+    for (i =0; i<7; i++) {
+      for (j = 0; j < 7; j++) {
         p = mg.getTile(i,j);
         me = mg.plantsById[p[0]-1];
         if (!me && mg.isTileUnlocked(i,j)) {
@@ -86,8 +86,8 @@ function checkHarvest() {
   } else {
     let numMature = 0;
     let numGrowing = 0;
-    for (i =1; i<7; i++) {
-      for (j = 1; j < 7; j++) {
+    for (i =0; i<7; i++) {
+      for (j = 0; j < 7; j++) {
         const plantIdAge = mg.getTile(i,j);
         const plantDetails = mg.plantsById[plantIdAge[0]-1];
         if (plantDetails) {
